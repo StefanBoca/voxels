@@ -10,7 +10,7 @@ namespace Voxels
 
 /// Implements a material map - a mapping between the Voxel
 /// grid materis ids and real texture ids later used for rendering
-class VOXELS_API MaterialMap
+class MaterialMap
 {
 public:
 	/// A material for triplanar projection

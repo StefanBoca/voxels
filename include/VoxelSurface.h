@@ -6,11 +6,11 @@
 namespace Voxels
 {
 
-/// Interface for implementing a surface that can be voxelized in a 
-/// Voxel grid. Wgile the grid is being generated it will call the 
-/// GetSurface method that must feed it the distance between the surface and the 
+/// Interface for implementing a surface that can be voxelized in a
+/// Voxel grid. Wgile the grid is being generated it will call the
+/// GetSurface method that must feed it the distance between the surface and the
 /// points in space it's called for.
-class VOXELS_API VoxelSurface
+class VoxelSurface
 {
 public:
 	virtual ~VoxelSurface() {}
@@ -27,7 +27,7 @@ public:
 	/// @param zEnd ending coordinate on Z axis
 	/// @param zStep setp on the Z axis
 	/// @param output the distance values you need to fill.
-	/// @param materialid the material id values you need to fill. 
+	/// @param materialid the material id values you need to fill.
 	/// Can be nullptr - in that case ignore the parameter.
 	/// @param blend the blend values you need to fill.
 	/// Can be nullptr - in that case ignore the parameter.

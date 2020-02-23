@@ -3,9 +3,11 @@
 // Voxels Library, please see LICENSE for licensing details.
 #include "stdafx.h"
 
-#include "../include/Version.h"
-#include "../include/Library.h"
+#include <Version.h>
+#include <Library.h>
 #include "Logger.h"
+
+#include <cstdlib>
 
 void* DefaultAllocate(size_t size)
 {
@@ -19,12 +21,12 @@ void DefaultDeallocate(void* ptr)
 
 void* DefaultAllocateAligned(size_t size, size_t alignment)
 {
-	return _aligned_malloc(size, alignment);
+	return std::aligned_alloc(alignment, size);
 }
 
 void DefaultDeallocateAligned(void* ptr)
 {
-	_aligned_free(ptr);
+    std::free(ptr);
 }
 
 Voxels::VoxelsAllocate_f voxel_allocate = &DefaultAllocate;

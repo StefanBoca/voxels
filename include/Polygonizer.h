@@ -11,16 +11,16 @@ namespace Voxels
 
 /// Represents a vertex output from the polygonization process
 ///
-struct VOXELS_API PolygonVertex
+struct PolygonVertex
 {
 	/// Vector containing the position of the vertex
 	///
 	float3 Position;
-	
+
 	/// Vector containing the secondary position of the vertex
 	/// The secondary position must be used when a vertex is on a boundary
 	/// where a transition mesh will be drawn. The W component contains
-	/// adjacency information about the neighbors od the block that need to 
+	/// adjacency information about the neighbors od the block that need to
 	/// be active to use this secondary position.
 	float4 SecondaryPosition;
 
@@ -107,7 +107,7 @@ public:
 
 /// Statistics provided about the polygonization process
 ///
-struct VOXELS_API PolygonizationStatistics
+struct PolygonizationStatistics
 {
 	/// The count of blocks calculated
 	///
@@ -173,13 +173,13 @@ public:
 	/// Destroys the Surface and frees all memory associated with it.
 	/// All pointers retrieved through this object become invalid.
 	virtual void Destroy() = 0;
-		
-	VOXELS_API static const unsigned INVALID_ID;
+
+    static const unsigned INVALID_ID;
 };
 
 /// Represents a "dirty" region you want to modify
 ///
-struct VOXELS_API Modification
+struct Modification
 {
 	/// Creates a new empty modification region
 	///
@@ -192,7 +192,7 @@ struct VOXELS_API Modification
 	/// The minimal corner of the "dirty" region.
 	/// In *grid* coordinates, i.e. Z is UP
 	float3 MinCornerModified; // in GRID coordinates
-	
+
 	/// The maximal corner of the "dirty" region.
 	/// In *grid* coordinates, i.e. Z is UP
 	float3 MaxCornerModified; // in GRID coordinates
@@ -206,13 +206,13 @@ struct VOXELS_API Modification
 	/// Destroys the modification structure and all the memory associated
 	// with it. The retrieved block pointers are invalidated.
 	virtual void Destroy() = 0;
-	
+
 	virtual ~Modification();
 };
 
 /// Polygonizes a Voxel grid
 /// Outputs LOD levels with collections of blocks - each with vertices and indices.
-class VOXELS_API Polygonizer
+class Polygonizer
 {
 public:
 	/// Creates a new Polygonizer object

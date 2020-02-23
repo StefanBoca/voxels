@@ -18,7 +18,7 @@ enum InjectionType
 {
 	IT_Add,
 	IT_SubtractAddInner,
-	IT_Subtract,
+	IT_Subtract
 };
 
 typedef unsigned char MaterialId;
@@ -26,7 +26,7 @@ typedef unsigned char BlendFactor;
 
 /// A Voxel grid. Voxels inside are kept compressed
 /// **Note:** Grids use a coordinate system where Z is *up*
-class VOXELS_API Grid
+class Grid
 {
 public:
 	/// A Voxel grid packed for serilization
@@ -104,7 +104,7 @@ public:
 							const float3& extents,
 							VoxelSurface* surface,
 							InjectionType type);
-	
+
 	/// Injects a material in the grid
 	/// @param position point in the grid where to apply the material
 	/// @param extents the extents of the modification on all axes
@@ -115,11 +115,11 @@ public:
 							const float3& extents,
 							MaterialId material,
 							bool addSubtractBlend);
-	
+
 	/// The block extents in voxels. Blocks are always cubes
 	/// @return the extent in voxels on all axes
 	unsigned GetBlockExtent() const;
-	
+
 	/// Gets the distance data of a block
 	/// @param coords the coordinates of a block
 	/// @param output the memory where to copy the data - should be block_extent^3 * sizeof(char) bytes

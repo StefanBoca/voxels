@@ -4,7 +4,7 @@
 #pragma once
 #include "VoxelGrid.h"
 
-#include "..\include\Polygonizer.h"
+#include <Polygonizer.h>
 
 namespace Voxels
 {
@@ -36,9 +36,9 @@ struct PolygonBlock : public BlockPolygons
 				, const float3& min
 				, const float3& max);
 	PolygonBlock(PolygonBlock&& block);
-	
+
 	PolygonBlock& operator=(PolygonBlock&& block);
-	
+
 	unsigned Id;
 
 	VerticesVec Vertices;

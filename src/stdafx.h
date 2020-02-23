@@ -3,28 +3,18 @@
 // Voxels Library, please see LICENSE for licensing details.
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
-#include <Windows.h>
-
 #include <utility>
 #include <memory>
 #include <vector>
 #include <string>
-#include <algorithm> 
-
-#ifdef _MSC_VER
-#define snprintf _snprintf
-#endif
+#include <algorithm>
 
 #define VOXELS_LOG_SIZE 512
 
 #include <glm/glm.hpp>
 
-#include <profi_decls.h>
-#include <profi.h>
-#include "../include/Declarations.h"
-#include "../include/Library.h"
+#include <Declarations.h>
+#include <Library.h>
 
 extern Voxels::VoxelsAllocate_f voxel_allocate;
 extern Voxels::VoxelsDeallocate_f voxel_deallocate;
