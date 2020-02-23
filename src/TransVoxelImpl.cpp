@@ -2116,17 +2116,6 @@ namespace Voxels
 
     PolygonMap* TransVoxelImpl::Execute(const Voxels::VoxelGrid& grid, const MaterialMap* materials, Modification* modification)
     {
-#ifdef GRID_LIMIT
-        if (grid.GetWidth() > GRID_LIMIT
-                || grid.GetHeight() > GRID_LIMIT
-                || grid.GetDepth() > GRID_LIMIT) {
-            char buffer[VOXELS_LOG_SIZE];
-            snprintf(buffer, VOXELS_LOG_SIZE, "Unable to polygonize grid. Grid extents are limited to %u in this version of the library.", GRID_LIMIT);
-            VOXLOG(LS_Error, buffer);
-            return nullptr;
-        }
-#endif
-
         TransVoxelRun run(grid, materials, static_cast<MapModification*>(modification));
 
         return run.Execute();

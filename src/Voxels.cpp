@@ -53,10 +53,6 @@ Voxels::InitError InitializeVoxels(int version, Voxels::LogMessage logger, Voxel
 	char buffer[VOXELS_LOG_SIZE];
 	snprintf(buffer, VOXELS_LOG_SIZE, "Voxels library initialized - ver. %#010x", VOXELS_VERSION);
 	VOXLOG(LS_Info, buffer);
-	#ifdef GRID_LIMIT
-	snprintf(buffer, VOXELS_LOG_SIZE, "LIMITED Grid size to %d x %d x %d", GRID_LIMIT, GRID_LIMIT, GRID_LIMIT);
-	VOXLOG(LS_Info, buffer);
-	#endif
 
 	return Voxels::IE_Ok;
 }

@@ -754,42 +754,18 @@ Grid* Grid::Create(unsigned w, unsigned d, unsigned h,
 	float startX, float startY, float startZ, float step,
 	VoxelSurface* surface)
 {
-#ifdef GRID_LIMIT
-	if (w > GRID_LIMIT || d > GRID_LIMIT || h > GRID_LIMIT) {
-		char buffer[VOXELS_LOG_SIZE];
-		snprintf(buffer, VOXELS_LOG_SIZE, "Unable to create grid. Grid extents are limited to %u in this version of the library.", GRID_LIMIT);
-		VOXLOG(LS_Error, buffer);
-		return nullptr;
-	}
-#endif
 	auto impl = std::unique_ptr<VoxelGrid>(new VoxelGrid(w, d, h, startX, startY, startZ, step, surface));
 	return new Grid(impl.release());
 }
 
 Grid* Grid::Create(unsigned w, unsigned d, unsigned h)
 {
-#ifdef GRID_LIMIT
-	if (w > GRID_LIMIT || d > GRID_LIMIT || h > GRID_LIMIT) {
-		char buffer[VOXELS_LOG_SIZE];
-		snprintf(buffer, VOXELS_LOG_SIZE, "Unable to create grid. Grid extents are limited to %u in this version of the library.", GRID_LIMIT);
-		VOXLOG(LS_Error, buffer);
-		return nullptr;
-	}
-#endif
 	auto impl = std::unique_ptr<VoxelGrid>(new VoxelGrid(w, d, h));
 	return new Grid(impl.release());
 }
 
 Grid* Grid::Create(unsigned w, const char* heightmap)
 {
-#ifdef GRID_LIMIT
-	if (w > GRID_LIMIT) {
-		char buffer[VOXELS_LOG_SIZE];
-		snprintf(buffer, VOXELS_LOG_SIZE, "Unable to create grid. Grid extents are limited to %u in this version of the library.", GRID_LIMIT);
-		VOXLOG(LS_Error, buffer);
-		return nullptr;
-	}
-#endif
 	auto impl = std::unique_ptr<VoxelGrid>(new VoxelGrid(w, heightmap));
 	return new Grid(impl.release());
 }
